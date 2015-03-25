@@ -17,7 +17,6 @@ public class Main extends JavaPlugin{
 		listServer = new HashMap<String, Socket>();
 		new server.Start().runTaskAsynchronously(getPlugin());
 		Bukkit.getLogger().info("Plugin pret a etre utilse");
-		System.out.println("yolo");
 	}
 	
 	public void onDisable(){
