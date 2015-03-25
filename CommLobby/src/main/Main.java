@@ -24,6 +24,7 @@ public class Main extends JavaPlugin{
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		
 		return false;
 	}
 	
