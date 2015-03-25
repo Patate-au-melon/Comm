@@ -16,7 +16,7 @@ public class Start extends BukkitRunnable{
 	public void run() {
 		try {
 			ServerSocket ss = new ServerSocket(25600);
-			Bukkit.getLogger().info("§4Pret pour recevoir les clients sur le port   " + ss.getLocalPort());
+			Bukkit.getLogger().info("Demarage du serveur de communication entre serveur effectue");
 			while(true){
 				Socket s = ss.accept();
 				nbServerConnect++;

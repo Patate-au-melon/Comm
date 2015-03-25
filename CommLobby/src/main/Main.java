@@ -16,7 +16,8 @@ public class Main extends JavaPlugin{
 	public void onEnable(){
 		listServer = new HashMap<String, Socket>();
 		new server.Start().runTaskAsynchronously(getPlugin());
-		Bukkit.getLogger().info("Plugin pret a etre utilse");
+		baseDeDonnee.Connexion.connect();
+		Bukkit.getLogger().info("Plugin opérationel");
 	}
 	
 	public void onDisable(){
