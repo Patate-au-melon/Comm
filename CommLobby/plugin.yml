@@ -3,5 +3,3 @@ author: jeje2208
 main: main.Main
 version: 0.0.0
 commands:
-  test:
-    description: test

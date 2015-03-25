@@ -24,9 +24,6 @@ public class Main extends JavaPlugin{
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if(label.equalsIgnoreCase("test")){
-			new server.SendMessage("S2", "gh", "je vais bien").send();
-		}
 		return false;
 	}
 	
