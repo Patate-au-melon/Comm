@@ -14,10 +14,7 @@ public class Main extends JavaPlugin{
 	public static HashMap<String, Socket> listServer;
 	
 	public void onEnable(){
-		listServer = new HashMap<String, Socket>();
-		new server.Start().runTaskAsynchronously(getPlugin());
-		baseDeDonnee.Connexion.connect();
-		Bukkit.getLogger().info("Plugin opérationel");
+		demarageSetup.Main.setup();
 	}
 	
 	public void onDisable(){
