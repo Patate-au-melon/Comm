@@ -22,6 +22,7 @@ public class Start extends BukkitRunnable{
 				nbServerConnect++;
 				String serverName = main.Config.getListServerNameConfig().getString(""+s.getPort());
 				Main.listServer.put(serverName, s);
+				Bukkit.getLogger().info(serverName+" vient de se connecter au lobby avec le port  "+s.getPort());
 				new ReceiveMessage(s, nbServerConnect).runTaskAsynchronously(main.Main.getPlugin());
 			}
 		} catch (Exception e) {

@@ -1,26 +1,22 @@
-package server;
+package apiCommLobby;
 
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-import main.Main;
-
 public class SendMessage {
-	private String server;
 	private String label;
 	private String msg;
 	
-	public SendMessage(String server, String label, String message){
-		this.server = server;
+	public SendMessage(String label, String message){
 		this.label = label;
-		this.msg= message;
+		this.msg = message;
 	}
 	
-	public void send(){
-		if(Main.listServer.containsKey(this.server)){
+	public void sendToLobby(){
+		if(Connexion.co){
 			try {
-				Socket s = Main.listServer.get(this.server);
+				Socket s = Connexion.s;
 				OutputStream os = s.getOutputStream();
 				PrintWriter pw = new PrintWriter(os);
 				String serverName = main.Config.getServerInfo().getString("name");
@@ -30,5 +26,6 @@ public class SendMessage {
 			}
 		}
 	}
+
 
 }

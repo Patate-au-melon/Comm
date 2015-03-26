@@ -3,3 +3,5 @@ author: jeje2208
 main: main.Main
 version: 0.0.0
 commands:
+  s2Stop:
+    description: yolo

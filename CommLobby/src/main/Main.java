@@ -21,7 +21,9 @@ public class Main extends JavaPlugin{
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		
+		if(label.equalsIgnoreCase("s2Stop")){
+			new server.SendMessage("S2", "stop", "dml ln");
+		}
 		return false;
 	}
 	

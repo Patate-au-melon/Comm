@@ -20,4 +20,9 @@ public class Config {
 			e.printStackTrace();
 		}
 	}
+	
+	public static FileConfiguration getServerInfo(){
+		File f = new File("plugins/NitroGames/serverInfo.yml");
+		return YamlConfiguration.loadConfiguration(f);
+	}
 }
