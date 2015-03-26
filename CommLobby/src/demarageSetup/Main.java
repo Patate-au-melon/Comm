@@ -12,7 +12,7 @@ public class Main {
 		new server.Start().runTaskAsynchronously(main.Main.getPlugin());
 		baseDeDonnee.Connexion.connect();
 		RecupConfigListServerName.checkListServerName();
-		Bukkit.getLogger().info("Plugin opérationel");
+		Bukkit.getLogger().info("Plugin operationel");
 	}
 
 }

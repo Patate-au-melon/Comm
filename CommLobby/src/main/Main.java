@@ -18,7 +18,6 @@ public class Main extends JavaPlugin{
 	}
 	
 	public void onDisable(){
-		
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
