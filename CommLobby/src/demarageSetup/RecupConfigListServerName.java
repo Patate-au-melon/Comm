@@ -13,9 +13,7 @@ public class RecupConfigListServerName {
 		String v = null;
 		HashMap<String, ArrayList<String>> list = baseDeDonnee.Requette.send("Select * FROM `version` WHERE `configName` = 'listServerName'");
 		ArrayList<String> l = list.get("1");
-		System.out.println(l.toString());
 		if(l.get(0).equalsIgnoreCase("listServerName")){
-			System.out.println(l.get(0));
 			v = l.get(1);
 		}
 		if(version != v){
