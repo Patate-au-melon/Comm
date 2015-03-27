@@ -14,7 +14,7 @@ public class Connexion extends BukkitRunnable{
 	public void run() {
 		try {
 			co = true;
-			s = new Socket(InetAddress.getLocalHost(), 25600, InetAddress.getLocalHost(), 25601);
+			s = new Socket(main.Config.getServerInfo().getString("lobbyAdresse"), main.Config.getServerInfo().getInt("lobbyPort"), InetAddress.getLocalHost(), main.Config.getServerInfo().getInt("port"));
 			new ReceiveMessage(s).runTaskAsynchronously(main.Main.getPlugin());
 			Bukkit.getLogger().info("Connexion avec le lobby effectue sur le port  " + s.getPort());
 		} catch (Exception e) {

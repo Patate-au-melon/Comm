@@ -8,7 +8,7 @@ public class StopConnexion {
 	public static void close(){
 		try {
 			if(Connexion.co){
-				Connexion.s.close();
+				new SendMessage("stop", "").sendToLobby();
 				Connexion.co = false;
 			}
 			Bukkit.getLogger().info("Connexion avec le lobby interompue");

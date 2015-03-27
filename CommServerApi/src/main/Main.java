@@ -9,7 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin{
 	
 	public void onEnable(){
-		new apiCommLobby.Connexion().runTaskAsynchronously(getPlugin());
+		demarageSetup.Main.setup();
 	}
 	
 	public void onDisable(){
