@@ -31,7 +31,7 @@ public class RecupConfigListServerName {
 		HashMap<String, ArrayList<String>> list = baseDeDonnee.Requette.send("SELECT * FROM `listServer`");
 		for(int i = 1; i <list.size();i++){
 			ArrayList<String> l = list.get(i+"");
-			config.set(l.get(1), l.get(0));
+			config.set(l.get(0), l.get(1));
 		}
 		main.Config.saveListServerNameConfig(config);
 	}

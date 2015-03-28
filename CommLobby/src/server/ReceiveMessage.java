@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class ReceiveMessage extends BukkitRunnable{
@@ -27,8 +28,14 @@ public class ReceiveMessage extends BukkitRunnable{
 			InputStreamReader isr = new InputStreamReader(is);
 			this.br = new BufferedReader(isr);
 			while(true){
-				String msg = br.readLine();
-				message(msg);
+				try{
+					String msg = br.readLine();
+					message(msg);
+				} catch (Exception e) {
+					this.cancel();
+					Bukkit.getLogger().warning("Erreur lie a la deconnexion d'un serveur");
+					break;
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,5 +56,5 @@ public class ReceiveMessage extends BukkitRunnable{
 			e.printStackTrace();
 		}
 	}
-
+	
 }
