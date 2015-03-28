@@ -14,17 +14,28 @@ public class Connexion extends BukkitRunnable{
 	@Override
 	public void run() {
 		try {
-			co = true;
 			s = new Socket(InetAddress.getLocalHost(), main.Config.getServerInfo().getInt("lobbyPort"), InetAddress.getLocalHost(), main.Config.getServerInfo().getInt("port"));
-			if(!(s == null)){
-				connect = true;
-			}
-			System.out.println(connect+"");
-			s.toString();
+			connect = s.isConnected();
 			new ReceiveMessage(s).runTaskAsynchronously(main.Main.getPlugin());
 			Bukkit.getLogger().info("Connexion avec le lobby effectue sur le port  " + s.getPort());
 		} catch (Exception e) {
-			e.printStackTrace();
+			Bukkit.getLogger().warning("Impossible de se connecter au lobby");
+			delayed();
 		}
+	}
+	
+	public void delayed(){
+		Bukkit.getScheduler().runTaskLater(main.Main.getPlugin(), new Runnable(){
+
+			@Override
+			public void run() {
+				trans();
+			}
+			
+		}, 2);
+	}
+	
+	public void trans(){
+		run();
 	}
 }
