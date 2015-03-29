@@ -24,7 +24,8 @@ public class SendMessage {
 				OutputStream os = s.getOutputStream();
 				PrintWriter pw = new PrintWriter(os);
 				String serverName = main.Config.getServerInfo().getString("name");
-				pw.println(serverName + " " + this.label +" "+ this.msg);
+				pw.println(serverName + " " + this.label +" "+ this.msg+"\n");
+				pw.flush();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

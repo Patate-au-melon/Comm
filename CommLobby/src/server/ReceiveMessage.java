@@ -30,6 +30,7 @@ public class ReceiveMessage extends BukkitRunnable{
 			while(true){
 				try{
 					String msg = br.readLine();
+					System.out.println(msg);
 					message(msg);
 				} catch (Exception e) {
 					this.cancel();
