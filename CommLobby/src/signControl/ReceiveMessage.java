@@ -22,6 +22,10 @@ public class ReceiveMessage {
 				int y = Integer.parseInt(msg[2]);
 				int z = Integer.parseInt(msg[3]);
 				Location loc = new Location(w,x,y,z);
+				if(listLoc.contains(loc)){
+					listLoc.remove(loc);
+					listMessage.remove(msg);
+				}
 				listLoc.add(loc);
 				listMessage.add(msg);
 				update();
