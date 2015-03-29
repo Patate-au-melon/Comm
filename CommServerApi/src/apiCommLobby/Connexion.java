@@ -32,7 +32,7 @@ public class Connexion extends BukkitRunnable{
 				trans();
 			}
 			
-		}, 2);
+		}, 20);
 	}
 	
 	public void trans(){
