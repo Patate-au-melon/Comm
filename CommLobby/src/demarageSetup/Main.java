@@ -11,7 +11,7 @@ public class Main {
 		main.Main.listServer = new HashMap<String, Socket>();
 		new server.Start().runTaskAsynchronously(main.Main.getPlugin());
 		baseDeDonnee.Connexion.connect();
-		RecupConfigListServerName.checkListServerName();
+		RecupConfigListServerName.recupListServerName();
 		Bukkit.getLogger().info("Plugin operationel");
 	}
 

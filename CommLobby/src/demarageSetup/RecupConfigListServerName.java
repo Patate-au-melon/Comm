@@ -8,23 +8,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class RecupConfigListServerName {
 	
-	static void checkListServerName(){
-		String version = main.Config.getListServerNameConfig().getString("version");
-		String v = null;
-		HashMap<String, ArrayList<String>> list = baseDeDonnee.Requette.send("Select * FROM `version` WHERE `configName` = 'listServerName'");
-		ArrayList<String> l = list.get("1");
-		if(l.get(0).equalsIgnoreCase("listServerName")){
-			v = l.get(1);
-		}
-		if(version != v){
-			recupListServerName();
-			FileConfiguration config = main.Config.getListServerNameConfig();
-			config.set("version", v);
-			main.Config.saveListServerNameConfig(config);
-			Bukkit.getLogger().info("Le fichier de config de la liste des serveurs a ete mise a jour");
-		}
-	}
-	
 	
 	static void recupListServerName(){
 		FileConfiguration config = main.Config.getListServerNameConfig();
@@ -34,6 +17,7 @@ public class RecupConfigListServerName {
 			config.set(l.get(0), l.get(1));
 		}
 		main.Config.saveListServerNameConfig(config);
+		Bukkit.getLogger().info("Mise a jour de la config ListServerName termine");
 	}
 
 }
