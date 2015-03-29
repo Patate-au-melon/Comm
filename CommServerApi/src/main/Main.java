@@ -17,9 +17,7 @@ public class Main extends JavaPlugin{
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if(label.equalsIgnoreCase("test")){
-			apiCommLobby.SendMessage.sendToLobby("st","yolo yolio");
-		}
+		
 		return false;
 	}
 	
