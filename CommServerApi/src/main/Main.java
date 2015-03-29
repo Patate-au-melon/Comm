@@ -14,6 +14,7 @@ public class Main extends JavaPlugin{
 	
 	public void onDisable(){
 		apiCommLobby.StopConnexion.close();
+		signControl.Shutdown.stop();
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
