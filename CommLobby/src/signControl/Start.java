@@ -10,7 +10,7 @@ import org.bukkit.World;
 public class Start {
 	
 	public static void start(){
-		HashMap<String, ArrayList<String>> list = baseDeDonnee.Requette.send("");
+		HashMap<String, ArrayList<String>> list = baseDeDonnee.Requette.send("SELECT * FROM `signList`");
 		for(int i = 1; i <list.size();i++){
 			ArrayList<String> l = list.get(i+"");
 			World world = Bukkit.getWorld(l.get(0));

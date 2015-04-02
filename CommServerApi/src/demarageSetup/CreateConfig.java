@@ -20,7 +20,7 @@ public class CreateConfig {
 	}
 	
 	public static void createSignControl(){
-		FileConfiguration configSignControl = main.Config.getServerInfo();
+		FileConfiguration configSignControl = main.Config.getSignControl();
 		if(configSignControl.getString("world") == null || configSignControl.getString("world") == ""){
 			configSignControl.set("world", "");
 			configSignControl.set("x", "");

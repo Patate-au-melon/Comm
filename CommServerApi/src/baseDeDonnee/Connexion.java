@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import org.bukkit.Bukkit;
 
 public class Connexion{
-	static java.sql.Connection cn;
+	public static java.sql.Connection cn;
 	static boolean co = false;
 	private static String url = "jdbc:mysql://mysql-hbct.alwaysdata.net/hbct_plugin";
 	private static String user = "hbct_plugin";
