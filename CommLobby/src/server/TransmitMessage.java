@@ -6,7 +6,6 @@ public class TransmitMessage {
 		if(label.equalsIgnoreCase("stop")&&main.Main.listServer.containsKey(server)){
 			CloseSocket.close(server);
 		}
-		signControl.ReceiveMessage.receive(server, label, message);
 	}
 
 
