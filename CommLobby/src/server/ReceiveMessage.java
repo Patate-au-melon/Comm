@@ -46,15 +46,16 @@ public class ReceiveMessage extends BukkitRunnable{
 	private void message(String message){
 		try {
 			String msg[] = message.split(" ");
-			String server = msg[0];
-			String label = msg[1];
-			String mes = msg[2];
+			String server = msg[0+0];
+			String label = msg[1+0];
+			String mes = msg[2+0];
+			System.out.println("message de " + server + " pour le label " + label);
 			for(int i = 3;i<msg.length;i++){
 				mes = mes + " " + msg[i];
 			}
 			TransmitMessage.send(server, label, mes);
 		} catch (Exception e) {
-			e.printStackTrace();
+			Bukkit.getLogger().warning("Erreur lors du traitement du message, correction non dispo pour le moment");
 		}
 	}
 	
