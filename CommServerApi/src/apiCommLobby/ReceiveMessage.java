@@ -46,9 +46,10 @@ public class ReceiveMessage extends BukkitRunnable{
 			for(int i = 3;i<msg.length;i++){
 				mes = mes + " " + msg[i];
 			}
+			System.out.println(message);
 			TransmitMessage.send(server, label, mes);
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception e){
+			Bukkit.getLogger().warning("Erreur lié au traitement du message, fixe non disponible pour le moment");
 		}
 	}
 

@@ -11,9 +11,10 @@ public class Main {
 	public static void setup(){
 		main.Main.listServer = new HashMap<String, Socket>();
 		signControl.Receive.listSign = new HashMap<Location, String[]>();
+		CreateConfig.createServerInfo();
 		new server.Start().runTaskAsynchronously(main.Main.getPlugin());
 		baseDeDonnee.Connexion.connect();
-		RecupConfigListServerName.recupListServerName();
+		CreateConfig.recupListServerName();
 		signControl.Update.boucle();
 		Bukkit.getLogger().info("Plugin operationel");
 	}

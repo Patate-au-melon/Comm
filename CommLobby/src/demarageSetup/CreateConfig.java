@@ -6,7 +6,7 @@ import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 
-public class RecupConfigListServerName {
+public class CreateConfig {
 	
 	
 	static void recupListServerName(){
@@ -18,6 +18,18 @@ public class RecupConfigListServerName {
 		}
 		main.Config.saveListServerNameConfig(config);
 		Bukkit.getLogger().info("Mise a jour de la config ListServerName termine");
+	}
+	
+	static void createServerInfo(){
+		FileConfiguration config = main.Config.getServerInfo();
+		if(config.getString("name") == null || config.getString("name") == ""){
+			config.set("name", "");
+			config.set("port", "");
+			main.Config.setServerInfo(config);
+			Bukkit.getLogger().info("Creation de la config serverInfo");
+			Bukkit.getLogger().warning("Merci de la remplir avant de relancer le serveur");
+			Bukkit.getServer().shutdown();
+		}
 	}
 
 }
