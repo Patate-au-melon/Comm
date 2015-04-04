@@ -30,7 +30,6 @@ public class ReceiveMessage extends BukkitRunnable{
 			while(true){
 				try{
 					String msg = br.readLine();
-					System.out.println(msg);
 					message(msg);
 				} catch (Exception e) {
 					this.cancel();
@@ -49,10 +48,10 @@ public class ReceiveMessage extends BukkitRunnable{
 			String server = msg[0+0];
 			String label = msg[1+0];
 			String mes = msg[2+0];
-			System.out.println("message de " + server + " pour le label " + label);
 			for(int i = 3;i<msg.length;i++){
 				mes = mes + " " + msg[i];
 			}
+			System.out.println(message);
 			TransmitMessage.send(server, label, mes);
 		} catch (Exception e) {
 			Bukkit.getLogger().warning("Erreur lors du traitement du message, correction non dispo pour le moment");

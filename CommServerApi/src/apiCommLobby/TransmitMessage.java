@@ -8,6 +8,7 @@ public class TransmitMessage {
 		if(label.equalsIgnoreCase("stop")){
 			Bukkit.getServer().shutdown();
 		}
+		new signControl.Receive(server, label, message);
 	}
 
 }

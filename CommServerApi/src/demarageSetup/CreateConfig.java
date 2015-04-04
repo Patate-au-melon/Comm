@@ -26,10 +26,6 @@ public class CreateConfig {
 			configSignControl.set("x", "");
 			configSignControl.set("y", "");
 			configSignControl.set("z", "");
-			configSignControl.set("serverDown.line1", "");
-			configSignControl.set("serverDown.line2", "");
-			configSignControl.set("serverDown.line3", "");
-			configSignControl.set("serverDown.line4", "");
 			main.Config.setSignControl(configSignControl);
 			Bukkit.getLogger().info("Creation de la config signControl");
 			Bukkit.getLogger().warning("Merci de la remplir avant de relancer le serveur");

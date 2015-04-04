@@ -49,7 +49,7 @@ public class ReceiveMessage extends BukkitRunnable{
 			System.out.println(message);
 			TransmitMessage.send(server, label, mes);
 		} catch (Exception e){
-			Bukkit.getLogger().warning("Erreur lié au traitement du message, fixe non disponible pour le moment");
+			Bukkit.getLogger().warning("Erreur lie au traitement du message, fixe non disponible pour le moment");
 		}
 	}
 

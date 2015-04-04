@@ -13,7 +13,6 @@ import org.bukkit.block.Sign;
 public class Receive {
 
 	private Location loc;
-	private String[] line;
 	public static HashMap<Location, String[]> listSign;
 	
 	public Receive(String server, String label, String message){
@@ -25,15 +24,13 @@ public class Receive {
 				int y = Integer.parseInt(msg[2]);
 				int z = Integer.parseInt(msg[3]);
 				this.loc = new Location(w, x, y, z);
-				for(int i = 0; i<4;i++)
-					line[i] = msg[i+4];
-				if(loc.getChunk().isLoaded()){
-					updateSign(loc, line);
-				}else{
+				try{
+					updateSign(loc, msg);
+				}catch(Exception e){
 					if(listSign.containsKey(loc)){
-						listSign.replace(loc, line);
+						listSign.replace(loc, msg);
 					}else{
-						listSign.put(loc, line);
+						listSign.put(loc, msg);
 					}
 					boucle();
 				}
@@ -46,9 +43,8 @@ public class Receive {
 		if(b.getType() == Material.WALL_SIGN){
 			Sign sign = (Sign) b.getState();
 			for(int i =0;i<4;i++)
-				sign.setLine(i, line[i]);
+				sign.setLine(i, line[i+4]);
 			sign.update();
-			System.out.println("mise a jour du panneau en pos x:"+ loc.getBlockX() + " pos y "+ loc.getBlockY()+ " pos z" +loc.getBlockZ());
 		}
 	}
 	
@@ -60,9 +56,12 @@ public class Receive {
 				for(Entry<Location, String[]> entry : listSign.entrySet()) {
 				    Location loc = entry.getKey();
 				    String[] line = entry.getValue();
-				    if(loc.getChunk().isLoaded()){
-				    	updateSign(loc, line);
-				    }
+				    try{
+						updateSign(loc, line);
+						listSign.remove(loc);
+					}catch(Exception e){
+						boucle();
+					}
 				}
 				if(listSign.isEmpty() == false){
 					boucle();
