@@ -28,7 +28,6 @@ public class Update {
 			@Override
 			public void run() {
 				new Update();
-				
 			}
 			
 		}, 2400);

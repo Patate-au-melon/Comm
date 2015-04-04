@@ -14,6 +14,7 @@ public class Main {
 		new server.Start().runTaskAsynchronously(main.Main.getPlugin());
 		baseDeDonnee.Connexion.connect();
 		RecupConfigListServerName.recupListServerName();
+		signControl.Update.boucle();
 		Bukkit.getLogger().info("Plugin operationel");
 	}
 
