@@ -30,7 +30,7 @@ public class Update {
 				new Update();
 			}
 			
-		}, 2400);
+		}, 6000);
 	}
 
 }

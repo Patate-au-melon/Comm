@@ -31,5 +31,19 @@ public class CreateConfig {
 			Bukkit.getServer().shutdown();
 		}
 	}
+	
+	static void createSignControl(){
+		FileConfiguration config = main.Config.getSignControl();
+		if(config.getString("line1") == null || config.getString("line1") == ""){
+			config.set("line1", "");
+			config.set("line2", "");
+			config.set("line3", "");
+			config.set("line4", "");
+			main.Config.setSignControl(config);
+			Bukkit.getLogger().info("Creation de la config serverInfo");
+			Bukkit.getLogger().warning("Merci de la remplir avant de relancer le serveur");
+			Bukkit.getServer().shutdown();
+		}
+	}
 
 }

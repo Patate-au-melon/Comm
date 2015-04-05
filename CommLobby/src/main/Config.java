@@ -10,6 +10,7 @@ public class Config {
 	
 	private static String serverInfoPath = "plugins/NitroGames/serverInfo.yml"; 
 	private static String listServerNamePath = "plugins/NitroGames/listServerName.yml";
+	private static String signControlPath = "plugins/NitroGames/signControl.yml";
 	
 	public static FileConfiguration getListServerNameConfig(){
 		File f = new File(listServerNamePath);
@@ -33,6 +34,20 @@ public class Config {
 	public static void setServerInfo(FileConfiguration config){
 		try {
 			config.save(new File(serverInfoPath));
+		} catch (Exception e) {
+			Bukkit.getLogger().warning("Erreur lie a la sauvegarde de la config serverInfo");
+			e.printStackTrace();
+		}
+	}
+	
+	public static FileConfiguration getSignControl(){
+		File f = new File(signControlPath);
+		return YamlConfiguration.loadConfiguration(f);
+	}
+	
+	public static void setSignControl(FileConfiguration config){
+		try {
+			config.save(new File(signControlPath));
 		} catch (Exception e) {
 			Bukkit.getLogger().warning("Erreur lie a la sauvegarde de la config serverInfo");
 			e.printStackTrace();

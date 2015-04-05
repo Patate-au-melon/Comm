@@ -38,17 +38,18 @@ public class Receive {
 		}
 	}
 	
-	public void updateSign(Location loc, String[] line){
+	public static void updateSign(Location loc, String[] line){
 		Block b = loc.getBlock();
 		if(b.getType() == Material.WALL_SIGN){
 			Sign sign = (Sign) b.getState();
 			for(int i =0;i<4;i++)
 				sign.setLine(i, line[i+4]);
 			sign.update();
+			listSign.remove(loc);
 		}
 	}
 	
-	private void boucle(){
+	public static void boucle(){
 		Bukkit.getScheduler().scheduleSyncDelayedTask(main.Main.getPlugin(), new Runnable(){
 
 			@Override
@@ -58,9 +59,7 @@ public class Receive {
 				    String[] line = entry.getValue();
 				    try{
 						updateSign(loc, line);
-						listSign.remove(loc);
 					}catch(Exception e){
-						boucle();
 					}
 				}
 				if(listSign.isEmpty() == false){
@@ -68,7 +67,7 @@ public class Receive {
 				}
 			}
 			
-		}, 40);
+		}, 80);
 	}
 
 }
