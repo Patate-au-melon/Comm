@@ -42,8 +42,14 @@ public class Receive {
 		Block b = loc.getBlock();
 		if(b.getType() == Material.WALL_SIGN){
 			Sign sign = (Sign) b.getState();
-			for(int i =0;i<4;i++)
-				sign.setLine(i, line[i+4]);
+			for(int i =0;i<4;i++){
+				String[] li = line[i+4].split(":");
+				String lin = li[0];
+				for(int n=1;n<li.length;n++){
+					lin = lin + " " + li[n];
+				}
+				sign.setLine(i, lin);
+			}
 			sign.update();
 			listSign.remove(loc);
 		}
