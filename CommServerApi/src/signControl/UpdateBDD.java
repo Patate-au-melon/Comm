@@ -12,6 +12,7 @@ public class UpdateBDD {
 	
 	public UpdateBDD(){
 		HashMap<String, ArrayList<String>> list = baseDeDonnee.Requette.send("SELECT * FROM `signList`");
+		String serverName = main.Config.getServerInfo().getString("name");
 		String world = main.Config.getSignControl().getString("world");
 	    String x = main.Config.getSignControl().getString("x");
 	    String y = main.Config.getSignControl().getString("y");
@@ -25,13 +26,14 @@ public class UpdateBDD {
 		}
 		if(!test){
 			Bukkit.getLogger().info("Mise a jour de la base de donnee de gestion des panneau");
-			String requette = "insert into `signList` (`world`, `x`, `y`, `z`)" + "values (?,?,?,?)";
+			String requette = "insert into `signList` (`Server`, `world`, `x`, `y`, `z`)" + "values (?,?,?,?,?)";
 			try {
 				PreparedStatement prepa = baseDeDonnee.Connexion.cn.prepareStatement(requette);
-				prepa.setString(1, world);
-				prepa.setString(2, x);
-				prepa.setString(3, y);
-				prepa.setString(4, z);
+				prepa.setString(1, serverName);
+				prepa.setString(2, world);
+				prepa.setString(3, x);
+				prepa.setString(4, y);
+				prepa.setString(5, z);
 				prepa.execute();
 			} catch (Exception e) {
 				e.printStackTrace();
