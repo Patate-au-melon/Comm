@@ -19,7 +19,7 @@ public class UpdateBDD {
 	    String z = main.Config.getSignControl().getString("z");
 		for(int i = 1; i<list.size();i++) {
 		    ArrayList<String> l = list.get(i+"");
-		    if(x.equalsIgnoreCase(l.get(1)) && y.equalsIgnoreCase(l.get(2))&& z.equalsIgnoreCase(l.get(3))){
+		    if(x.equalsIgnoreCase(l.get(2)) && y.equalsIgnoreCase(l.get(3))&& z.equalsIgnoreCase(l.get(4))){
 		    	test = true;
 		    	break;
 		    }
