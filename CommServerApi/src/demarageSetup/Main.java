@@ -3,7 +3,7 @@ package demarageSetup;
 public class Main {
 	
 	public static void setup(){
-		baseDeDonnee.Connexion.connect();
+		main.Api.BdDconnect();
 		CreateConfig.createServerInfo();
 		CreateConfig.createSignControl();
 		new signControl.UpdateBDD();
