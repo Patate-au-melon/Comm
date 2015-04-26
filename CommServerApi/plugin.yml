@@ -4,4 +4,4 @@ main: main.Main
 version: 0.0.0
 commands:
   down:
-    description: shutdown all
+    description: shutdown allby
