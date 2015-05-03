@@ -13,6 +13,7 @@ public class Main extends JavaPlugin{
 	}
 	
 	public void onDisable(){
+		apiCommLobby.SendMessage.sendToLobby("disconect", "a");
 		apiCommLobby.StopConnexion.close();
 	}
 	
