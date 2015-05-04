@@ -13,6 +13,7 @@ public class Main extends JavaPlugin{
 	}
 	
 	public void onDisable(){
+		new signControl.Send("§1 §4Serveur §4Offline §1");
 		apiCommLobby.SendMessage.sendToLobby("disconect", "a");
 		apiCommLobby.StopConnexion.close();
 	}
