@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,8 +11,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin{
 	
+	public static ArrayList<Player> noTouch;
+	
 	public void onEnable(){
 		Bukkit.getMessenger().registerOutgoingPluginChannel(main.Main.getPlugin(), "BungeeCord");
+		Bukkit.getPluginManager().registerEvents(new Event(), this);
+		noTouch = new ArrayList<>();
 		demarageSetup.Main.setup();
 	}
 	
@@ -26,6 +32,7 @@ public class Main extends JavaPlugin{
 		}else if(label.equalsIgnoreCase("lobby")){
 			Player p = (Player) sender;
 			apiCommLobby.SendMessage.sendToLobby("returnLobby", p.getUniqueId().toString());
+			noTouch.add(p);
 			Api.transfertPlayerTo(getPlugin(), p, "s1");
 		}
 		return false;
