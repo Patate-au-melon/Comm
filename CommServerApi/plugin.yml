@@ -4,4 +4,6 @@ main: main.Main
 version: 0.0.0
 commands:
   down:
-    description: shutdown allby
+    description: shutdown all
+  lobby:
+    description: return to lobby
