@@ -18,19 +18,5 @@ public class CreateConfig {
 			Bukkit.getServer().shutdown();
 		}
 	}
-	
-	public static void createSignControl(){
-		FileConfiguration configSignControl = main.Config.getSignControl();
-		if(configSignControl.getString("world") == null || configSignControl.getString("world") == ""){
-			configSignControl.set("world", "");
-			configSignControl.set("x", "");
-			configSignControl.set("y", "");
-			configSignControl.set("z", "");
-			main.Config.setSignControl(configSignControl);
-			Bukkit.getLogger().info("Creation de la config signControl");
-			Bukkit.getLogger().warning("Merci de la remplir avant de relancer le serveur");
-			Bukkit.getServer().shutdown();
-		}
-	}
 
 }

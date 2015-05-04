@@ -8,8 +8,6 @@ public class Main {
 		String password = "jeje";
 		main.Api.BdDconnect(url, user, password);
 		CreateConfig.createServerInfo();
-		CreateConfig.createSignControl();
-		new signControl.UpdateBDD();
 		new apiCommLobby.Connexion().runTaskAsynchronously(main.Main.getPlugin());
 	}
 
