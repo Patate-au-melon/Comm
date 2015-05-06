@@ -12,7 +12,7 @@ public class SendMessage {
 				Socket s = Connexion.s;
 				OutputStream os = s.getOutputStream();
 				PrintWriter pw = new PrintWriter(os);
-				String serverName = main.Config.getServerInfo().getString("name");
+				String serverName = main.Config.getServerInfoConfig().getString("name");
 				pw.println(serverName + " " + label +" "+ message+"\n");
 				pw.flush();
 			} catch (Exception e) {
