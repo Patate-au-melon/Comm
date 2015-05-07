@@ -8,6 +8,9 @@ public class Receive {
 				new Send("aze:aze a z e");
 			}
 		}
+		if(label.equalsIgnoreCase("sendJoueur")){
+			apiCommLobby.SendMessage.sendToLobby("sendJoueur", message);
+		}
 	}
 
 }

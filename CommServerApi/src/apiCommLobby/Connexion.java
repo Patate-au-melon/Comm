@@ -13,7 +13,7 @@ public class Connexion extends BukkitRunnable{
 	@Override
 	public void run() {
 		try {
-			s = new Socket(InetAddress.getLocalHost(), main.Config.getServerInfo().getInt("lobbyPort"), InetAddress.getLocalHost(), main.Config.getServerInfo().getInt("port"));
+			s = new Socket(InetAddress.getLocalHost(), main.Config.getServerInfoConfig().getInt("lobbyPort"), InetAddress.getLocalHost(), main.Config.getServerInfoConfig().getInt("port"));
 			new ReceiveMessage(s).runTaskAsynchronously(main.Main.getPlugin());
 			Bukkit.getLogger().info("Connexion avec le lobby effectue sur le port  " + s.getPort());
 			co = true;

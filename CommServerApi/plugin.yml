@@ -3,3 +3,7 @@ author: jeje2208
 main: main.Main
 version: 0.0.0
 commands:
+  down:
+    description: shutdown all
+  lobby:
+    description: return to lobby
