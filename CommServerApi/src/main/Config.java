@@ -8,35 +8,28 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 public class Config {
 	
-	private static String serverInfoPath ="plugins/NitroGames/serverInfo.yml";
-	private static String passPath = "plugins/NitroGames/pass.yml";
+	private static String PassPath = "plugins/NitroGames/pass.yml";
 	
-	public static FileConfiguration getServerInfoConfig(){
-		File f = new File(serverInfoPath);
-		return YamlConfiguration.loadConfiguration(f);
-	}
-	
-	public static void setServerInfoConfig(FileConfiguration config){
-		try {
-			config.save(serverInfoPath);
-		} catch (Exception e) {
-			Bukkit.getLogger().warning("Erreur lors de la sauvegarde de la config");
-			e.printStackTrace();
-		}
-	}
-	
+	//Config contenant les identifiant de connexion a la base de donnee
 	public static FileConfiguration getPassConfig(){
-		File f = new File(passPath);
+		File f = new File(PassPath);
 		return YamlConfiguration.loadConfiguration(f);
 	}
 	
-	public static void setPassConfig(FileConfiguration config){
-		try {
-			config.save(passPath);
-		} catch (Exception e) {
-			Bukkit.getLogger().warning("Erreur lors de la sauvegarde de la config");
-			e.printStackTrace();
+	public static void createPassConfig(){
+		FileConfiguration config = getPassConfig();
+		if(config.getString("user") == null || config.getString("user") == ""){
+			config.set("user", "");
+			config.set("password", "");
+			try {
+				config.save(new File(PassPath));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			Bukkit.getLogger().info("La config pass.yml a ete cree");
+			Bukkit.getLogger().info("Merci de la remplir avant de relancer le serveur");
+			Bukkit.shutdown();
 		}
 	}
-	
+
 }

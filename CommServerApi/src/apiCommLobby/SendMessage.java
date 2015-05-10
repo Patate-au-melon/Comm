@@ -4,6 +4,8 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import org.bukkit.Bukkit;
+
 public class SendMessage {
 	
 	public static void sendToLobby(String label, String message){
@@ -12,7 +14,7 @@ public class SendMessage {
 				Socket s = Connexion.s;
 				OutputStream os = s.getOutputStream();
 				PrintWriter pw = new PrintWriter(os);
-				String serverName = main.Config.getServerInfoConfig().getString("name");
+				String serverName = Bukkit.getServerName();
 				pw.println(serverName + " " + label +" "+ message+"\n");
 				pw.flush();
 			} catch (Exception e) {

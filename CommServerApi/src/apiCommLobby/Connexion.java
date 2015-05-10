@@ -9,11 +9,12 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class Connexion extends BukkitRunnable{
 	public static Socket s;
 	public static boolean co = false;
+	public static int lobbyPort;
 	
 	@Override
 	public void run() {
 		try {
-			s = new Socket(InetAddress.getLocalHost(), main.Config.getServerInfoConfig().getInt("lobbyPort"), InetAddress.getLocalHost(), main.Config.getServerInfoConfig().getInt("port"));
+			s = new Socket(InetAddress.getLocalHost(), lobbyPort, InetAddress.getLocalHost(), main.Main.localPort);
 			new ReceiveMessage(s).runTaskAsynchronously(main.Main.getPlugin());
 			Bukkit.getLogger().info("Connexion avec le lobby effectue sur le port  " + s.getPort());
 			co = true;

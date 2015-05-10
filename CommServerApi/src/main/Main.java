@@ -12,18 +12,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin{
 	
 	public static ArrayList<Player> noTouch;
+	public static int localPort;
 	
 	public void onEnable(){
-		Bukkit.getMessenger().registerOutgoingPluginChannel(main.Main.getPlugin(), "BungeeCord");
-		Bukkit.getPluginManager().registerEvents(new Event(), this);
-		noTouch = new ArrayList<>();
-		demarageSetup.Main.setup();
+		StartupAndShutdown.onEnable();
 	}
 	
 	public void onDisable(){
-		new signControl.Send("§1 §4Serveur §4Offline §1");
-		apiCommLobby.SendMessage.sendToLobby("disconect", "a");
-		apiCommLobby.StopConnexion.close();
+		StartupAndShutdown.onDisable();
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
