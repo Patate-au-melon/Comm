@@ -2,6 +2,7 @@ package commServer;
 
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -16,6 +17,7 @@ public class ConnexionServer extends BukkitRunnable{
 	protected static Socket s;
 	
 	public ConnexionServer() {
+		SendMessage.listMessage = new ArrayList<>();
 		this.runTaskAsynchronously(main.Main.getPlugin());
 	}
 
