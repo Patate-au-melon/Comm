@@ -26,7 +26,7 @@ public class StartandStop {
 			url = "jdbc:mysql://mysql-hbct.alwaysdata.net/hbct_plugin";
 			Bukkit.getLogger().info("Connexion avec la base de donnee de developpement");
 		}else{
-			url = "jdbc:mysql://publicsql-1.pulseheberg.net/service_35502";
+			url = "jdbc:mysql://mysql-hbct.alwaysdata.net/hbct_nitro";
 			Bukkit.getLogger().info("Connexion avec la base de donnee du serveur");
 		}
 		Api.BdDconnect(url, user, password); //Connexion avec la base de donnee
