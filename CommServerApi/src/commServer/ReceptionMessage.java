@@ -1,11 +1,13 @@
 package commServer;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class ReceptionMessage extends BukkitRunnable{
@@ -29,7 +31,7 @@ public class ReceptionMessage extends BukkitRunnable{
 				Transmition.transmit(ConnexionServer.lobbyServerName, msg);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			cancel();
 		}
 	}
 	
@@ -46,9 +48,21 @@ public class ReceptionMessage extends BukkitRunnable{
 				return msg;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			Bukkit.getLogger().warning(ConnexionServer.lobbyServerName + " vient d'etre deconnecter de ce serveur");
+			serverDisconnect();
 		}
 		return msg;
+	}
+	
+	private void serverDisconnect(){
+		try {
+			s.close();
+			ConnexionServer.s = null;
+			new ConnexionServer();
+			cancel();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 
