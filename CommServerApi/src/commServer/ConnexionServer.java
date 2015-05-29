@@ -18,6 +18,7 @@ public class ConnexionServer extends BukkitRunnable{
 	
 	public ConnexionServer() {
 		SendMessage.listMessage = new ArrayList<>();
+		Bukkit.getLogger().info("Serveur de communication intraServeur en attente du Lobby");
 		this.runTaskAsynchronously(main.Main.getPlugin());
 	}
 
@@ -25,11 +26,11 @@ public class ConnexionServer extends BukkitRunnable{
 	public void run() {
 		try {
 			s = new Socket(InetAddress.getLocalHost(), lobbyPort, InetAddress.getLocalHost(), localPort);
-			Bukkit.getLogger().info("Connexion avec le Lobby effectue");
+			Bukkit.getLogger().info("Connexion avec le serveur " +lobbyServerName+ " effectue");
 			new ReceptionMessage(s);
 			signControl.UpdateSign.updateSign();
 		} catch (Exception e) {
-			Bukkit.getLogger().warning("impossible de se connecter au Lobby");
+			Bukkit.getLogger().warning("impossible de se connecter au server " + lobbyServerName);
 			delayed();
 		}
 	}
@@ -42,7 +43,7 @@ public class ConnexionServer extends BukkitRunnable{
 				trans();
 			}
 			
-		}, 40);
+		}, 200);
 	}
 	
 	public void trans(){
