@@ -28,7 +28,7 @@ public class ConnexionServer extends BukkitRunnable{
 			s = new Socket(InetAddress.getLocalHost(), lobbyPort, InetAddress.getLocalHost(), localPort);
 			Bukkit.getLogger().info("Connexion avec le serveur " +lobbyServerName+ " effectue");
 			new ReceptionMessage(s);
-			signControl.UpdateSign.updateSign();
+			signControl.UpdateSign.updateSign(Bukkit.getOnlinePlayers().size());
 		} catch (Exception e) {
 			Bukkit.getLogger().warning("impossible de se connecter au server " + lobbyServerName);
 			delayed();
